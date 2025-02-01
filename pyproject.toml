@@ -1,14 +1,14 @@
 [project]
-name = "URL Fetcher"
+name = "url_fetcher"
 description = "Fetches URLs"
 version = "1.0.0"
 license = {file = "LICENSE"}
-dependencies = ["requests", "beautifulsoup4"]
+dependencies = ["requests"]
 
 [project.urls]
 Repository = "https://github.com/molbal/comfy-url-fetcher"
 
 [tool.comfy]
 PublisherId = "molbal"
-DisplayName = "ComfyUI"
+DisplayName = "URL Fetcher"
 Icon = ""
