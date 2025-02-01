@@ -34,17 +34,24 @@ class URLFetcherNode:
                 title_match = re.search(r'<title>(.*?)</title>', response.text, re.IGNORECASE)
                 title = title_match.group(1).strip() if title_match else "No Title"
 
-                # Extract text content by removing HTML tags
-                text_content = re.sub(r'<[^>]+>', ' ', response.text)  # Replace tags with spaces
-                text_content = re.sub(r'\s+', ' ', text_content).strip()  # Normalize whitespace
+                # Remove everything between <script> and <style> tags
+                cleaned_content = re.sub(r'<script.*?</script>', '', response.text, flags=re.DOTALL)
+                cleaned_content = re.sub(r'<style.*?</style>', '', cleaned_content, flags=re.DOTALL)
+
+                # Remove all remaining HTML tags
+                cleaned_content = re.sub(r'<[^>]+>', ' ', cleaned_content)
+
+                # Normalize whitespace
+                cleaned_content = re.sub(r'\s+', ' ', cleaned_content).strip()
 
                 # Format the result
-                results.append(f"{title}: {text_content}")
+                result = f"{title}: {cleaned_content}"
+                results.append(result)
             except Exception as e:
                 results.append(f"Error fetching {url}: {str(e)}")
 
         # Combine all results into a single string
-        output = "\n".join(results)
+        output = "KAKIKAKIKAKI\n".join(results)
 
         # Send a message to the front-end (optional)
         PromptServer.instance.send_sync("url_fetcher.message", {"message": "Finished fetching URLs"})

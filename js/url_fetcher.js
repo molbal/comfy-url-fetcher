@@ -5,7 +5,7 @@ app.registerExtension({
     name: "example.url_fetcher",
     async setup() {
         function messageHandler(event) {
-            alert(event.detail.message);
+            console.log('URL Fetcher event', event.detail.message);
         }
         api.addEventListener("url_fetcher.message", messageHandler);
     },
