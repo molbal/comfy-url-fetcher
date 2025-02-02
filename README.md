@@ -1,21 +1,19 @@
 # URL Fetcher
 
 ## Description
-URL Fetcher is a Python application that fetches and processes URLs using the `requests` and `beautifulsoup4` libraries.
+A custom node for ComfyUI that fetches URLs from a newline separated list and returns the websites' content as a single concatenated string.
 
 ## Installation
-To install the necessary dependencies, run the following command:
+To install the necessary dependencies, run the following command or use ComfyUI Manager:
 
 ```
-pip install -r requirements.txt
+comfy node registry-install url_fetcher
 ```
 
 ## Usage
-To use the URL Fetcher, run the main script:
+See the screenshot:
+![image](https://github.com/user-attachments/assets/f6152c46-1a39-4eba-9ef2-c4c5fb016c28)
 
-```
-python src/main.py
-```
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
