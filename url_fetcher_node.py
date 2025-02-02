@@ -51,7 +51,7 @@ class URLFetcherNode:
                 results.append(f"Error fetching {url}: {str(e)}")
 
         # Combine all results into a single string
-        output = "KAKIKAKIKAKI\n".join(results)
+        output = "\n".join(results)
 
         # Send a message to the front-end (optional)
         PromptServer.instance.send_sync("url_fetcher.message", {"message": "Finished fetching URLs"})
